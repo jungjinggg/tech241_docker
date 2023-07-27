@@ -50,7 +50,8 @@ docker commit 60c1f214d83d tech241-parichat-nginx
 ``` 
 To push images to Docker hub
 1. login to docker
-   ```docker login
+   ```
+   docker login
    ```
 
 2. tag docker image
