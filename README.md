@@ -67,3 +67,51 @@ To push images to Docker hub
 
    docker push parichanket/tech241-parichat-nginx
    ```
+
+## Replace nginx default index.html with customed index.html
+```
+# select the base image
+FROM nginx 
+
+# label it
+LABEL MAINTAINER=parichat@sparta
+
+# copy index.html from localhost to default nginx index.html location
+COPY index.html /usr/share/nginx/html/
+
+# port mapping or exposing the required port: port 80
+EXPOSE 80
+
+# command to launch the web server  
+CMD ["nginx", "-g", "daemon off;"] 
+```
+
+## Copy Sparta app to Docker
+1. clone sparta app
+   ```
+   git clone https://github.com/jungjinggg/tech241_sparta_app.git repo
+   ```
+2. cd repo and create Dockerfile
+   ```
+   nano Dockerfile 
+   ```
+3. inside the editor
+   ```
+    # Node.js version 12
+    FROM node:12
+
+    # Set the working directory inside the container
+    WORKDIR /app
+
+    # Copy app folder
+    COPY app /app
+
+    # Install node.js dependencies
+    RUN npm install
+
+    # Expose the application port
+    EXPOSE 3000
+
+    # Command to run the application when the container starts
+    CMD ["npm", "start"]
+   ```
