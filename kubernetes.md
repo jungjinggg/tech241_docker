@@ -23,7 +23,7 @@ K8 is widely used across various industries and organisations.
 Kubernetes offers faster deployment where it accelerates the deployment process allowing the business to release features and updates quickly and reliably.
 
 ## K8 Objects
-Objects are the building blaocks used to define the desired state of the cluster.
+Objects are the building blocks used to define the desired state of the cluster.
 
 1. Pods are the smallest deployable units which represents one or more containers that are tightly coupled and share the same network namespace and storage
 2. Deployments are used to manage the desired state of replica sets and pods.
