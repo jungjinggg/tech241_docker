@@ -35,3 +35,19 @@ spec:
         - containerPort: 80
 
 ```
+
+To create pods
+```
+kubectl create -f <file-name>
+kubectl create -f nginx-deploy.yml
+```
+
+Check the deployment
+```
+kubectl get deploy
+```
+
+Check the pods
+```
+kubectl get pods
+```
