@@ -1,37 +1,36 @@
 ```yml
 # which api to use for deployment
 apiVersion: apps/v1
-
-# pod - service what kind of service/object to create
-kind: Deployment
-
+# pod - service what kind of service you want to create
+kind: Deployment 
+# what would you like to call it - name the service/object
 metadata:
   # naming the deployment
-  name: nodejs-app-deployment
-
+  name: node 
 spec:
   selector:
     matchLabels:
-      # look for this label to match with k8 service
-      app: nodejs-app
-
-  # create a replica set with instances/pods
-  # 3 pods
-  replicas: 3 
-
-  # template to use its label for k8 service to launch in the browser
+      #look for this label to match with k8 service
+      app: node 
+  # let's create a replica set of this with instances/pods
+   # 3 pods
+  replicas: 3
+  # template to use it's label for k8 service to launch in the browser
   template:
     metadata:
       labels:
         # this label connects to the service or any other k8 components
-        app: nodejs-app
-    
-    # define the container spec
+        app: node 
+  # let's define the container spec
     spec:
       containers:
-      - name: nodejs-app
-        image: parichanket/tech241-nodejs-app:v1
-        ports:
-        - containerPort: 3000
-
+        - name: node
+          # the image that you built
+          image: parichanket/tech241-nodejs-app 
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DB_HOST
+              value: mongodb://mongo:27017/posts
+          imagePullPolicy: Always
 ```

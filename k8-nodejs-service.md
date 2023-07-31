@@ -14,7 +14,7 @@ metadata:
 spec:
   ports:
   # range: 30000 - 32768
-  - nodePort: 30002
+  - nodePort: 30003
     port: 3000
     targetPort: 3000
 

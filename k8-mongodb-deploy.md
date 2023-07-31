@@ -1,0 +1,32 @@
+```yml
+apiVersion: apps/v1 # which API to use for deployment
+kind: Deployment # pod - service what kind of service you want to create
+# what would you like to call it - name the service/object
+metadata:
+  name: mongo # naming the deployment
+spec:
+  selector:
+    matchLabels:
+      app: mongo #look for this label to match with k8 service
+    # let's create a replica set of this with instances/pods
+  replicas: 1 # 3 pods
+    # template to use it's label for k8 service to launch in the browser
+  template:
+    metadata:
+      labels:
+        app: mongo # this label connects to the service or any other k8 components
+  # let's define the container spec
+    spec:
+      containers:
+        - name: mongo
+          image: parichanket/mongodb # use the image that you built
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: storage
+              mountPath: /data/db
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: mongo-db
+```
