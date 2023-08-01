@@ -118,5 +118,6 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ## Horizontal Pod Autoscaling
 HPA is used to autometically updates a workload resource such as Deployment and Statefulset with the aim of autometically scaling the workload to match demand.
+
 ![autoscaling k8](images/k8-hpa.png)
 
