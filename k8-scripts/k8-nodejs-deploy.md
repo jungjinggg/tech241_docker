@@ -33,4 +33,12 @@ spec:
             - name: DB_HOST
               value: mongodb://mongo:27017/posts
           imagePullPolicy: Always
+          # add resource required
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.2"
 ```
